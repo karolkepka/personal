@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ukreximbank (Ukraine) — Essence of the Solution</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto minmax(0, 1fr);
+            gap: 20px 28px;
+            padding: 40px 56px 52px;
+            align-items: start;
+        }
+
+        .header-section {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+            gap: 16px;
+        }
+
+        .header-right-cluster {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+            max-width: min(560px, 52%);
+            flex-shrink: 0;
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 15px; min-width: 0; }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .logo-subtitle { color: #94a3b8; font-size: 12px; margin-top: 2px; }
+
+        .case-label {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .status-badge {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: #3b82f6;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .left-content {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-right: 8px;
+            min-height: 0;
+            align-self: start;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 35px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.12;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-lead {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.5;
+            max-width: 540px;
+        }
+
+        .hero-lead strong {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        .hero-scope {
+            color: #cbd5e1;
+            font-size: 13px;
+            line-height: 1.48;
+            max-width: 540px;
+            margin-bottom: 12px;
+        }
+
+        .hero-scope .scope-label {
+            color: #f8fafc;
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: rgba(56, 189, 248, 0.8);
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+        }
+
+        .hero-role {
+            color: #94a3b8;
+            font-size: 12px;
+            line-height: 1.45;
+            max-width: 540px;
+            margin-top: 2px;
+        }
+
+        .hero-role strong {
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+        .hero-role .role-label {
+            color: #f8fafc;
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: rgba(56, 189, 248, 0.8);
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+        }
+
+        .flow-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .flow-step {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            padding: 6px 11px;
+            color: #e2e8f0;
+            font-size: 11px;
+        }
+
+        .flow-step i { color: #3b82f6; font-size: 11px; }
+        .flow-arrow { color: #64748b; font-size: 11px; align-self: center; }
+
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 2px;
+        }
+
+        .bullet-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            color: #94a3b8;
+            font-size: 12px;
+            line-height: 1.42;
+        }
+
+        .bullet-list li i { color: #06b6d4; margin-top: 3px; flex-shrink: 0; }
+        .bullet-list strong { color: #e2e8f0; font-weight: 600; }
+
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: #3b82f6;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .right-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0;
+            padding: 4px 0 8px 8px;
+            align-self: stretch;
+        }
+
+        .collage-scene {
+            position: relative;
+            width: 100%;
+            flex: 1;
+            min-height: 420px;
+            isolation: isolate;
+        }
+
+        .collage-ambient {
+            position: absolute;
+            inset: -12% -8% -8% -12%;
+            background:
+                radial-gradient(ellipse 75% 55% at 72% 38%, rgba(59, 130, 246, 0.18), transparent 52%),
+                radial-gradient(ellipse 45% 40% at 18% 78%, rgba(6, 182, 212, 0.12), transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.9), transparent 45%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .collage-ring {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            top: 50%;
+            left: 58%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Diagram panels — readable (contain, no heavy overlay) */
+        .collage-diagram-top {
+            position: absolute;
+            top: 2%;
+            left: -2%;
+            width: 92%;
+            height: 56%;
+            border-radius: 20px;
+            overflow: hidden;
+            transform: rotate(-2.5deg);
+            box-shadow:
+                0 24px 56px rgba(0, 0, 0, 0.45),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            z-index: 1;
+            background: #0f172a;
+        }
+
+        .collage-diagram-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+        }
+
+        .collage-diagram-bottom {
+            position: absolute;
+            bottom: 5%;
+            right: -2%;
+            width: 76%;
+            height: 50%;
+            border-radius: 14px;
+            overflow: hidden;
+            transform: rotate(3.5deg);
+            box-shadow:
+                0 20px 48px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(56, 189, 248, 0.3);
+            z-index: 2;
+            background: #0f172a;
+        }
+
+        .collage-diagram-bottom img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+        }
+
+        .collage-badge {
+            pointer-events: none;
+            position: absolute;
+            z-index: 5;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 10px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.78);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #f1f5f9;
+        }
+
+        .collage-badge--accent {
+            color: #7dd3fc;
+            border-color: rgba(56, 189, 248, 0.35);
+        }
+
+        .badge-arch { top: 12%; left: 5%; }
+        .badge-cicd { bottom: 36%; right: 3%; }
+
+        .collage-connector {
+            position: absolute;
+            z-index: 3;
+            width: 110px;
+            height: 82px;
+            left: 44%;
+            top: 42%;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .bottom-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        }
+
+
+        /* Partner logos — header (avoids covering slide body text) */
+        .slide-logo-strip {
+            position: relative;
+            z-index: 12;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-shrink: 0;
+        }
+
+        .slide-logo-strip-inner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 5px 12px 5px 10px;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            box-shadow:
+                0 6px 22px rgba(0, 0, 0, 0.22),
+                0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+            max-width: 100%;
+        }
+
+        .slide-logo-strip a {
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            text-decoration: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .slide-logo-strip a:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+
+        .slide-logo-strip a:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        .map-program-lockup {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .map-program-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: #ff9900;
+        }
+        
+        .sponsor-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-left: 4px;
+            margin-right: 2px;
+        }
+
+        .partner-logo {
+            display: block;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .partner-logo--aws {
+            height: 18px;
+            max-width: 58px;
+        }
+
+        .partner-logo--exim {
+            height: 26px;
+            max-width: 132px;
+        }
+
+        .partner-logo-divider {
+            width: 1px;
+            height: 22px;
+            background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.15), transparent);
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="hero-grid">
+<div class="header-section">
+<div class="logo-area">
+<div class="logo-icon">
+<i class="fas fa-building-columns"></i>
+</div>
+<div>
+<div class="case-label">Selected use case</div>
+<div class="logo-text">Ukreximbank</div>
+<div class="logo-subtitle">JSC State Export-Import Bank of Ukraine · Oracle → AWS Redshift</div>
+</div>
+</div>
+<div class="header-right-cluster">
+<div class="status-badge">
+Landing zone · CDC · gated release
+            </div>
+<div class="slide-logo-strip" role="group" aria-label="AWS MAP and Ukreximbank Ukraine">
+<div class="slide-logo-strip-inner">
+<span class="sponsor-note">Sponsors</span>
+<a href="https://aws.amazon.com/migration-acceleration-program/" target="_blank" rel="noopener noreferrer" aria-label="AWS Migration Acceleration Program (opens in new tab)">
+<span class="map-program-lockup">
+<img class="partner-logo partner-logo--aws" src="assets/logo-aws-wordmark.svg" width="58" height="18" alt="AWS">
+<span class="map-program-label">MAP</span>
+</span>
+</a>
+<span class="partner-logo-divider" aria-hidden="true"></span>
+<a href="https://www.eximb.com/eng/home/" target="_blank" rel="noopener noreferrer" aria-label="JSC Ukreximbank — State Export-Import Bank of Ukraine (opens in new tab)">
+<img class="partner-logo partner-logo--exim" src="assets/logo-ukreximbank.png" width="132" height="26" alt="JSC Ukreximbank (Ukraine)">
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="left-content">
+<div>
+<h1 class="hero-title">
+<span class="highlight">Essence:</span> governed CDC from on-prem Oracle<br>to multi-account Redshift — with safe lower envs
+                </h1>
+<p class="hero-scope">
+                    <span class="scope-label">General scope</span> — State policy bank in an active war: exposure to air and missile threats, fragile physical and network continuity, and elevated operational risk (security, compliance, and service delivery). The programme assumes contested operations, not a calm “lift-and-shift” only.
+                </p>
+<p class="hero-lead">
+                    <strong>Customer vision</strong> (high-level SoW) for <strong>JSC Ukreximbank</strong>: establish a governed <strong>AWS Organization</strong> (logs, dev, test, UAT, prod, backups, tools), run <strong>DMS</strong> CDC from on-prem <strong>Oracle</strong> to <strong>Redshift</strong>, protect lower environments with masked/anonymized data, and release <strong>IaC/CaC</strong> via <strong>CI/CD</strong> with UAT/PROD approvals.
+                </p>
+</div>
+<div class="flow-row">
+<span class="flow-step"><i class="fas fa-database"></i> Oracle (on-prem)</span>
+<span class="flow-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="flow-step"><i class="fas fa-arrows-rotate"></i> DMS CDC</span>
+<span class="flow-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="flow-step"><i class="fas fa-cubes"></i> Redshift estates</span>
+<span class="flow-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="flow-step"><i class="fas fa-code-branch"></i> Terraform · CI/CD</span>
+</div>
+<ul class="bullet-list">
+<li>
+<i class="fas fa-sitemap"></i>
+<span><strong>Target data path</strong> — CDC pipes from Oracle SRC into account-scoped Redshift (PROD DWH; parallel feeds to UAT/DEV). Non-prod consumers use masked or anonymised schemas so teams can build without exposing sensitive production detail.</span>
+</li>
+<li>
+<i class="fas fa-rocket"></i>
+<span><strong>Delivery model</strong> — Multi-account CI/CD (CodeCommit, CodePipeline, CodeBuild), Secrets Manager, manual gates for UAT/PROD, Terraform landing zone; Fargate + EventBridge for transforms, scaling to MWAA as ETL breadth grows (15+ DMS tasks, 70+ workstreams).</span>
+</li>
+</ul>
+<div class="tech-stack">
+<span class="tech-tag">AWS Organizations</span>
+<span class="tech-tag">DMS</span>
+<span class="tech-tag">Redshift</span>
+<span class="tech-tag">Terraform</span>
+<span class="tech-tag">CodePipeline</span>
+<span class="tech-tag">CodeBuild</span>
+<span class="tech-tag">MWAA</span>
+</div>
+</div>
+<div class="right-content">
+<div class="collage-scene">
+<div class="collage-ambient"></div>
+<div class="collage-ring"></div>
+<div class="collage-diagram-top">
+<img src="assets/eximbank-cdc-target-architecture.png" width="640" height="360" alt="Target architecture: Oracle SRC to DMS CDC and Redshift across AWS accounts">
+</div>
+<span class="collage-badge badge-arch">CDC · target architecture</span>
+<div class="collage-diagram-bottom">
+<img src="assets/eximbank-release-process-cicd.png" width="520" height="300" alt="Release process: CI/CD across Dev, DevOps, UAT, PROD with approvals">
+</div>
+<span class="collage-badge collage-badge--accent badge-cicd">CI/CD · release process</span>
+<div class="collage-connector" aria-hidden="true">
+<svg viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 72 Q 38 28, 95 18" stroke="url(#eximGrad)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+<circle cx="95" cy="18" r="5" fill="#38bdf8" fill-opacity="0.9"/>
+<circle cx="8" cy="72" r="4" fill="#3b82f6" fill-opacity="0.85"/>
+<defs>
+<linearGradient id="eximGrad" x1="8" y1="72" x2="95" y2="18" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3b82f6"/>
+<stop offset="1" stop-color="#22d3ee"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom-bar"></div>
+</div>
+<script src="slides-nav.js" defer></script>
+</body>
+</html>

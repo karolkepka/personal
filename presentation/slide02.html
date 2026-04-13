@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Executive profile — Karol Kępka</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+        font-family: 'Inter', sans-serif; 
+        background: #000000;
+        margin: 0; 
+        padding: 0; 
+        overflow: hidden;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .slide-container {
+        position: relative;
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        flex-shrink: 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        font-family: 'Inter', sans-serif;
+    }
+    
+    .slide-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 40px 60px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+    
+    .header-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .header-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+    }
+    
+    .header-subtitle {
+        color: #64748b;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    
+    .main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        flex: 1;
+    }
+    
+    .left-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .section-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .section-icon {
+        width: 28px;
+        height: 28px;
+        background: rgba(59, 130, 246, 0.1);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #3b82f6;
+        font-size: 14px;
+    }
+    
+    .section-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #0f172a;
+    }
+    
+    .role-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .role-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+        background: #f8fafc;
+        border-radius: 8px;
+        font-size: 13px;
+        color: #334155;
+    }
+    
+    .role-icon {
+        color: #3b82f6;
+        font-size: 12px;
+    }
+    
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .tech-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+        background: #f8fafc;
+        border-radius: 8px;
+    }
+    
+    .tech-icon {
+        width: 24px;
+        height: 24px;
+        background: rgba(59, 130, 246, 0.1);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #3b82f6;
+        font-size: 12px;
+    }
+    
+    .tech-text {
+        font-size: 13px;
+        color: #334155;
+    }
+    
+    .tech-label {
+        font-size: 11px;
+        color: #64748b;
+    }
+    
+    .approach-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .approach-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px;
+        background: #f8fafc;
+        border-radius: 8px;
+    }
+    
+    .approach-icon {
+        color: #3b82f6;
+        font-size: 12px;
+        margin-top: 2px;
+    }
+    
+    .approach-text {
+        font-size: 13px;
+        color: #334155;
+        line-height: 1.4;
+    }
+    
+    .skills-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .skill-tag {
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 12px;
+        color: #3b82f6;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-top: 10px;
+    }
+    
+    .stat-box {
+        text-align: center;
+        padding: 10px;
+        background: #f8fafc;
+        border-radius: 8px;
+    }
+    
+    .stat-number {
+        font-size: 18px;
+        font-weight: 700;
+        color: #3b82f6;
+    }
+    
+    .stat-label {
+        font-size: 11px;
+        color: #64748b;
+    }
+    
+    .footer {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .footer-text {
+        color: #64748b;
+        font-size: 13px;
+    }
+    
+    .footer-icons {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .footer-icon {
+        width: 32px;
+        height: 32px;
+        background: white;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
+        font-size: 14px;
+        border: 1px solid #e2e8f0;
+    }
+</style>
+</head>
+<body style="">
+<div class="slide-container">
+<div class="slide-content">
+<div class="header">
+<div>
+<div class="header-title">
+<div class="header-icon">
+<i class="fas fa-user-tie"></i>
+</div>
+<span>Executive profile</span>
+</div>
+<div class="header-subtitle">What I bring to an engineering team — skills, experience, and approach</div>
+</div>
+<div class="status-badge" style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); padding: 8px 16px; border-radius: 20px; color: #3b82f6; font-size: 13px; font-weight: 500;">
+<i class="fas fa-check-circle"></i> Senior Level
+            </div>
+</div>
+<div class="main-grid">
+<div class="left-column">
+<div class="section-card">
+<div class="section-header">
+<div class="section-icon">
+<i class="fas fa-briefcase"></i>
+</div>
+<div class="section-title">Roles &amp; experience</div>
+</div>
+<div class="role-grid">
+<div class="role-item">
+<i class="fas fa-sitemap role-icon"></i>
+<span>Solution Architect</span>
+</div>
+<div class="role-item">
+<i class="fas fa-paint-brush role-icon"></i>
+<span>Software Designer</span>
+</div>
+<div class="role-item">
+<i class="fas fa-project-diagram role-icon"></i>
+<span>Project Manager</span>
+</div>
+<div class="role-item">
+<i class="fas fa-code role-icon"></i>
+<span>Data Engineer</span>
+</div>
+</div>
+<div class="stats-grid">
+
+
+
+
+</div>
+</div>
+<div class="section-card">
+<div class="section-header">
+<div class="section-icon">
+<i class="fas fa-cogs"></i>
+</div>
+<div class="section-title">Delivery approach</div>
+</div>
+<div class="approach-list">
+<div class="approach-item">
+<i class="fas fa-check-circle approach-icon"></i>
+<div class="approach-text"><strong>Fast business value</strong> — focus on delivering measurable results quickly</div>
+</div>
+<div class="approach-item">
+<i class="fas fa-check-circle approach-icon"></i>
+<div class="approach-text"><strong>Simple architecture</strong> — avoid over-engineering; fast PoCs and MVPs</div>
+</div>
+<div class="approach-item">
+<i class="fas fa-check-circle approach-icon"></i>
+<div class="approach-text"><strong>Technical depth</strong> — hands-on experience across the full SDLC</div>
+</div>
+</div>
+</div>
+</div>
+<div class="right-column">
+<div class="section-card">
+<div class="section-header">
+<div class="section-icon">
+<i class="fas fa-layer-group"></i>
+</div>
+<div class="section-title">Technology stack</div>
+</div>
+<div class="tech-grid">
+<div class="tech-item">
+<div class="tech-icon">
+<i class="fab fa-python"></i>
+</div>
+<div>
+<div class="tech-text">Python</div>
+<div class="tech-label">Primary</div>
+</div>
+</div>
+<div class="tech-item">
+<div class="tech-icon">
+<i class="fas fa-database"></i>
+</div>
+<div>
+<div class="tech-text">SQL</div>
+<div class="tech-label">Expert</div>
+</div>
+</div>
+<div class="tech-item">
+<div class="tech-icon">
+<i class="fas fa-cloud"></i>
+</div>
+<div>
+<div class="tech-text">AWS</div>
+<div class="tech-label">5+ years</div>
+</div>
+</div><div class="tech-item">
+<div class="tech-icon">
+<i class="fas fa-cloud"></i>
+</div>
+<div>
+<div class="tech-text">Azure</div>
+<div class="tech-label">2+ years</div>
+</div>
+</div>
+<div class="tech-item">
+<div class="tech-icon">
+<i class="fas fa-cloud"></i>
+</div>
+<div>
+<div class="tech-text">LAMP, Frontend, WEB</div>
+<div class="tech-label">10+ years</div>
+</div>
+</div>
+</div>
+<div style="margin-top: 15px;">
+<div style="font-size: 13px; color: #334155; margin-bottom: 8px;">Platforms &amp; databases:</div>
+<div class="skills-row">
+<span class="skill-tag">Oracle</span>
+<span class="skill-tag">Redshift</span>
+<span class="skill-tag">Snowflake</span>
+<span class="skill-tag">MySQL</span>
+<span class="skill-tag">IBM Db2</span><span class="skill-tag">PostgreSQL</span>
+</div>
+</div>
+</div>
+<div class="section-card">
+<div class="section-header">
+<div class="section-icon">
+<i class="fas fa-users"></i>
+</div>
+<div class="section-title">Teamwork style</div>
+</div>
+<div class="approach-list">
+<div class="approach-item">
+<i class="fas fa-handshake approach-icon"></i>
+<div class="approach-text"><strong>Collaboration</strong> — teamwork and sharing knowledge</div>
+</div>
+<div class="approach-item">
+<i class="fas fa-chart-line approach-icon"></i>
+<div class="approach-text"><strong>Fact-based decisions</strong> — analytical approach</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="footer-text">
+<i class="fas fa-info-circle"></i> Experience across roles: from development to architecture
+            </div>
+<div class="footer-icons">
+<a class="footer-icon" href="https://github.com/karolkepka" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+<i class="fab fa-github"></i>
+</a>
+<a class="footer-icon" href="https://www.linkedin.com/in/karol-karol/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+<i class="fab fa-linkedin"></i>
+</a>
+<a class="footer-icon" href="mailto:karol.mariusz.kepka@gmail.com" aria-label="Send email">
+<i class="fas fa-envelope"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<script src="slides-nav.js" defer></script>
+</body></html>

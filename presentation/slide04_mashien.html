@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Mashien — Essence of the Solution</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto minmax(0, 1fr);
+            gap: 20px 28px;
+            padding: 40px 56px 64px;
+            align-items: start;
+        }
+
+        .header-section {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+            gap: 16px;
+        }
+
+        .header-right-cluster {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+            flex-shrink: 0;
+            max-width: min(560px, 52%);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .logo-subtitle {
+            color: #94a3b8;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .case-label {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .status-badge {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: #3b82f6;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .left-content {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-right: 8px;
+            min-height: 0;
+            align-self: start;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.12;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-lead {
+            color: #cbd5e1;
+            font-size: 15px;
+            line-height: 1.5;
+            max-width: 540px;
+        }
+        .hero-role {
+            color: #94a3b8;
+            font-size: 12px;
+            line-height: 1.45;
+            max-width: 540px;
+            margin-top: 2px;
+        }
+        .hero-role strong {
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+        .hero-role .role-label {
+            color: #f8fafc;
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: rgba(56, 189, 248, 0.8);
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+        }
+
+        .flow-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .flow-step {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            padding: 7px 12px;
+            color: #e2e8f0;
+            font-size: 12px;
+        }
+
+        .flow-step i {
+            color: #3b82f6;
+            font-size: 12px;
+        }
+
+        .flow-arrow {
+            color: #64748b;
+            font-size: 12px;
+            align-self: center;
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .bullet-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            color: #94a3b8;
+            font-size: 13px;
+            line-height: 1.42;
+        }
+
+        .bullet-list li i {
+            color: #06b6d4;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .bullet-list strong {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            color: #3b82f6;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .right-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0;
+            padding: 4px 0 8px 8px;
+            align-self: stretch;
+        }
+
+        /* Collage: marine context + overlapping data panel */
+        .collage-scene {
+            position: relative;
+            width: 100%;
+            flex: 1;
+            min-height: 420px;
+            isolation: isolate;
+        }
+
+        .collage-ambient {
+            position: absolute;
+            inset: -12% -8% -8% -12%;
+            background:
+                radial-gradient(ellipse 75% 55% at 72% 38%, rgba(59, 130, 246, 0.22), transparent 52%),
+                radial-gradient(ellipse 45% 40% at 18% 78%, rgba(6, 182, 212, 0.14), transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.9), transparent 45%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .collage-ring {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            top: 50%;
+            left: 58%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .collage-ring::after {
+            content: '';
+            position: absolute;
+            inset: 28px;
+            border-radius: 50%;
+            border: 1px dashed rgba(56, 189, 248, 0.15);
+        }
+
+        .collage-marine {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            position: absolute;
+            top: 2%;
+            left: -2%;
+            width: 92%;
+            height: 58%;
+            border-radius: 22px;
+            overflow: hidden;
+            transform: rotate(-3deg);
+            box-shadow:
+                0 28px 64px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            z-index: 1;
+        }
+
+        .collage-marine:focus-visible {
+            outline: 2px solid #38bdf8;
+            outline-offset: 4px;
+            z-index: 6;
+        }
+
+        .collage-marine img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 42% center;
+            display: block;
+        }
+
+        .collage-marine::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.15) 42%, transparent 62%);
+            pointer-events: none;
+        }
+
+        .collage-data {
+            position: absolute;
+            bottom: 4%;
+            right: -2%;
+            width: 78%;
+            height: 52%;
+            border-radius: 16px;
+            overflow: hidden;
+            transform: rotate(4deg);
+            box-shadow:
+                0 24px 56px rgba(0, 0, 0, 0.55),
+                0 0 0 1px rgba(56, 189, 248, 0.35),
+                0 0 48px rgba(59, 130, 246, 0.18);
+            z-index: 2;
+        }
+
+        .collage-data img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left top;
+            display: block;
+        }
+
+        .collage-data::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(15, 23, 42, 0.35) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .collage-badge {
+            pointer-events: none;
+            position: absolute;
+            z-index: 5;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            padding: 7px 12px;
+            border-radius: 10px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: #f1f5f9;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        .collage-badge--accent {
+            color: #7dd3fc;
+            border-color: rgba(56, 189, 248, 0.35);
+        }
+
+        .collage-badge--marine {
+            top: 14%;
+            left: 6%;
+        }
+
+        .collage-badge--data {
+            bottom: 38%;
+            right: 4%;
+        }
+
+        .collage-connector {
+            position: absolute;
+            z-index: 3;
+            width: 120px;
+            height: 90px;
+            left: 46%;
+            top: 44%;
+            pointer-events: none;
+            opacity: 0.85;
+        }
+
+        .collage-connector svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .collage-foot {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 4;
+            padding-bottom: 2px;
+            max-width: 100%;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #64748b;
+            line-height: 1.45;
+            padding: 0 4px;
+        }
+
+        .collage-foot code {
+            color: #94a3b8;
+            background: rgba(0, 0, 0, 0.28);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Partner logos — header strip */
+        .slide-logo-strip {
+            position: relative;
+            z-index: 12;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-shrink: 0;
+        }
+
+        .slide-logo-strip-inner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 5px 12px 5px 10px;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            box-shadow:
+                0 6px 22px rgba(0, 0, 0, 0.22),
+                0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+            max-width: 100%;
+        }
+
+        .slide-logo-strip a {
+            display: flex;
+            align-items: center;
+            line-height: 0;
+            text-decoration: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .slide-logo-strip a:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+
+        .slide-logo-strip a:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        .sponsor-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-left: 4px;
+            margin-right: 2px;
+        }
+
+        .partner-logo {
+            display: block;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .partner-logo--gu {
+            height: 32px;
+            width: auto;
+            max-width: 46px;
+            object-fit: contain;
+        }
+
+        .partner-logo--nato {
+            height: 18px;
+            max-width: 128px;
+        }
+
+        .partner-logo-divider {
+            width: 1px;
+            height: 22px;
+            background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.15), transparent);
+            flex-shrink: 0;
+        }
+
+        .bottom-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        }
+
+        /* Click-to-enlarge lightbox */
+        .diagram-lightbox-trigger {
+            cursor: zoom-in;
+        }
+
+        .diagram-lightbox-trigger:focus-visible {
+            outline: 2px solid #38bdf8;
+            outline-offset: 3px;
+            z-index: 6;
+        }
+
+        .image-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(15, 23, 42, 0.94);
+            align-items: center;
+            justify-content: center;
+            padding: 56px 24px 24px;
+            box-sizing: border-box;
+        }
+
+        .image-lightbox.is-open {
+            display: flex;
+        }
+
+        .image-lightbox__img {
+            max-width: min(96vw, 1400px);
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+            cursor: pointer;
+        }
+
+        .image-lightbox__img.image-lightbox__img--no-link {
+            cursor: zoom-out;
+        }
+
+        .image-lightbox__close {
+            position: fixed;
+            top: 16px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f1f5f9;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 100000;
+        }
+
+        .image-lightbox__close:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .image-lightbox__hint {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #94a3b8;
+            z-index: 100000;
+        }
+
+        .collage-foot a.collage-foot-link {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .collage-foot a.collage-foot-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="hero-grid">
+<div class="header-section">
+<div class="logo-area">
+<div class="logo-icon">
+<i class="fas fa-ship"></i>
+</div>
+<div>
+<div class="case-label">Selected use case</div>
+<div class="logo-text">Mashien</div>
+<div class="logo-subtitle">Marine shock analytics · AWS data platform</div>
+</div>
+</div>
+<div class="header-right-cluster">
+<div class="status-badge">
+Ingest → catalog → algorithms → BI
+            </div>
+<div class="slide-logo-strip" role="group" aria-label="Project sponsors">
+<div class="slide-logo-strip-inner">
+<span class="sponsor-note">Sponsors</span>
+<a href="https://www.gu.se/en" target="_blank" rel="noopener noreferrer" aria-label="University of Gothenburg (opens in new tab)">
+<img class="partner-logo partner-logo--gu" src="assets/logo-university-gothenburg-official.svg" width="46" height="32" alt="University of Gothenburg">
+</a>
+<span class="partner-logo-divider" aria-hidden="true"></span>
+<a href="https://www.nato.int" target="_blank" rel="noopener noreferrer" aria-label="NATO (opens in new tab)">
+<img class="partner-logo partner-logo--nato" src="assets/logo-nato-otan.svg" width="128" height="18" alt="NATO / OTAN">
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="left-content">
+<div>
+<h1 class="hero-title">
+<span class="highlight">Essence:</span> from raw MarecX uploads<br>to queryable hull-impact signals
+                </h1>
+<p class="hero-lead">
+                    Agents upload binary payloads through a secured web path; the platform normalizes them to analytics-ready tables, runs channel-aware processing with calibration, and exposes curated datasets for SQL and dashboards.
+                </p>
+</div>
+<div class="flow-row">
+<span class="flow-step"><i class="fas fa-cloud-upload-alt"></i> Amplify + Cognito</span>
+<span class="flow-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="flow-step"><i class="fas fa-database"></i> S3 landing → Parquet</span>
+<span class="flow-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="flow-step"><i class="fas fa-gears"></i> Glue + Athena</span>
+<span class="flow-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="flow-step"><i class="fas fa-chart-pie"></i> Superset</span>
+</div>
+<ul class="bullet-list">
+<li>
+<i class="fas fa-diagram-project"></i>
+<span><strong>Pipeline (architecture)</strong> — Event-driven Lambdas move data from binary landing zones to Parquet, partition agency/time paths, and keep the Glue catalog in sync for downstream joins.</span>
+</li>
+<li>
+<i class="fas fa-wave-square"></i>
+<span><strong>Algorithms (<code>mashien-algos</code>)</strong> — Parser unpacks MarecX payloads from S3; the measures worker consumes SQS batches, validates row counts, applies multi-channel filters with calibration, and scores hull impacts for reporting.</span>
+</li>
+</ul>
+<div class="tech-stack">
+<span class="tech-tag">S3</span>
+<span class="tech-tag">Lambda</span>
+<span class="tech-tag">EventBridge</span>
+<span class="tech-tag">SQS</span>
+<span class="tech-tag">Glue</span>
+<span class="tech-tag">Athena</span>
+<span class="tech-tag">pandas</span>
+</div>
+</div>
+<div class="right-content">
+<div class="collage-scene">
+<div class="collage-ambient"></div>
+<div class="collage-ring"></div>
+<div class="collage-marine diagram-lightbox-trigger" role="button" tabindex="0" aria-label="Enlarge marine context image. When enlarged, click the image again to open the SoftwareOne NATO Mashien case study." data-article-url="https://www.softwareone.com/en/case-studies/global/education/university-of-gothenburg-cloud-services">
+<img src="assets/mashien-collage-marine-context.png" width="640" height="360" alt="High-speed marine context — visual metaphor for shock and sea trials; image style reference linked to SoftwareOne case study">
+</div>
+<span class="collage-badge collage-badge--marine">Marine / shock context</span>
+<div class="collage-data diagram-lightbox-trigger" role="button" tabindex="0" aria-label="Enlarge sparse channel data preview. When enlarged, click the image again to open the SoftwareOne NATO Mashien case study." data-article-url="https://www.softwareone.com/en/case-studies/global/education/university-of-gothenburg-cloud-services">
+<img src="assets/mashien-sparse-channels-preview.png" width="520" height="300" alt="Sparse multi-channel time series: ts and channel columns">
+</div>
+<span class="collage-badge collage-badge--accent collage-badge--data">Signal layer · mashien-algos</span>
+<div class="collage-connector" aria-hidden="true">
+<svg viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 72 Q 38 28, 95 18" stroke="url(#collageGrad)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+<circle cx="95" cy="18" r="5" fill="#38bdf8" fill-opacity="0.9"/>
+<circle cx="8" cy="72" r="4" fill="#3b82f6" fill-opacity="0.85"/>
+<defs>
+<linearGradient id="collageGrad" x1="8" y1="72" x2="95" y2="18" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3b82f6"/>
+<stop offset="1" stop-color="#22d3ee"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+<p class="collage-foot">Overlapping story: operations imagery → tabular pipeline input · <code>ts</code>, <code>c1</code>…<code>c10</code> · sparse events per row · <a class="collage-foot-link" href="https://www.softwareone.com/en/case-studies/global/education/university-of-gothenburg-cloud-services" target="_blank" rel="noopener noreferrer">SoftwareOne — NATO / Mashien (University of Gothenburg case)</a></p>
+</div>
+</div>
+</div>
+<div class="bottom-bar"></div>
+</div>
+<div id="image-lightbox" class="image-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Enlarged image">
+<button type="button" class="image-lightbox__close" aria-label="Close">&times;</button>
+<img class="image-lightbox__img" src="" alt="">
+<span class="image-lightbox__hint">Click the image again to open the SoftwareOne case · or click backdrop / press Escape to close</span>
+</div>
+<script>
+(function () {
+    var lb = document.getElementById('image-lightbox');
+    if (!lb) return;
+    var fullImg = lb.querySelector('.image-lightbox__img');
+    var closeBtn = lb.querySelector('.image-lightbox__close');
+    var articleUrlOpen = '';
+
+    function openLightbox(src, alt, articleUrl) {
+        articleUrlOpen = articleUrl || '';
+        fullImg.src = src;
+        fullImg.alt = alt || '';
+        fullImg.classList.toggle('image-lightbox__img--no-link', !articleUrlOpen);
+        lb.classList.add('is-open');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+
+    function closeLightbox() {
+        lb.classList.remove('is-open');
+        lb.setAttribute('aria-hidden', 'true');
+        fullImg.removeAttribute('src');
+        fullImg.alt = '';
+        articleUrlOpen = '';
+        fullImg.classList.remove('image-lightbox__img--no-link');
+        document.body.style.overflow = '';
+    }
+
+    fullImg.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (!lb.classList.contains('is-open') || !articleUrlOpen) return;
+        window.open(articleUrlOpen, '_blank', 'noopener,noreferrer');
+    });
+
+    document.querySelectorAll('.diagram-lightbox-trigger').forEach(function (el) {
+        function activate() {
+            var inner = el.querySelector('img');
+            if (!inner) return;
+            var url = el.getAttribute('data-article-url') || '';
+            openLightbox(inner.getAttribute('src'), inner.getAttribute('alt') || '', url);
+        }
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            activate();
+        });
+        el.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                activate();
+            }
+        });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', function (e) {
+        if (e.target === lb) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) closeLightbox();
+    });
+})();
+</script>
+<script src="slides-nav.js" defer></script>
+</body>
+</html>
