@@ -1,0 +1,5 @@
+.DS_Store
+.venv/
+.cursor/
+.git.backup-*/
+kopia-omv-ssl/
