@@ -1,0 +1,42 @@
+name: Deploy presentation to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  # Do not cancel an in-flight Pages deploy; that can leave the site wedged after visibility/settings changes.
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble site (root entry + presentation only)
+        run: |
+          mkdir -p _site
+          cp -f index.html .nojekyll _site/
+          cp -R presentation _site/
+
+      - uses: actions/configure-pages@v5
+
+      # Hidden files default to OFF — without this, .nojekyll is dropped from the artifact and Jekyll can break the site.
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+          include-hidden-files: true
+
+      - uses: actions/deploy-pages@v5
+        id: deployment
