@@ -24,10 +24,19 @@
         return !!(lb && lb.getAttribute('aria-hidden') === 'false');
     }
 
+    function slideHref(filename) {
+        // Resolve against current slide URL so navigation works from any subdirectory path on GitHub Pages.
+        try {
+            return new URL(filename, window.location.href).href;
+        } catch (e) {
+            return filename;
+        }
+    }
+
     function go(delta) {
         var next = index + delta;
         if (next < 0 || next >= SLIDES.length) return;
-        window.location.href = SLIDES[next];
+        window.location.href = slideHref(SLIDES[next]);
     }
 
     var css =
