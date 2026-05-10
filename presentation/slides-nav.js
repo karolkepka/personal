@@ -7,6 +7,7 @@
         'slide02.html',
         'slide03.html',
         'slide04_mashien.html',
+        'slide04b_mashien_aws.html',
         'slide05_eximbank.html',
         'slide06_lb_central_bank.html',
         'slide07_wideoo.html',

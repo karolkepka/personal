@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Mashien — Essence of the Solution</title>
+<title>Mashien — Story, roles &amp; outcomes</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
@@ -43,19 +43,18 @@
             width: 100%;
             height: 100%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto minmax(0, 1fr);
-            gap: 20px 28px;
-            padding: 40px 56px 64px;
+            grid-template-columns: 1fr;
+            /* Explicit middle row consumes leftover space only; thumbs + hint stay below without overlap */
+            grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+            gap: 10px;
+            padding: 22px 44px 36px;
             align-items: start;
         }
 
         .header-section {
-            grid-column: 1 / -1;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 4px;
             gap: 16px;
         }
 
@@ -67,7 +66,19 @@
             justify-content: flex-end;
             gap: 12px;
             flex-shrink: 0;
-            max-width: min(560px, 52%);
+        }
+
+        .slide-part-pill {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            padding: 6px 12px;
+            border-radius: 999px;
         }
 
         .logo-area {
@@ -118,26 +129,92 @@
             padding: 8px 16px;
             border-radius: 20px;
             color: #3b82f6;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             white-space: nowrap;
         }
 
-        .left-content {
+        .smart-strip {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 8px;
+            padding: 8px 12px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+        }
+
+        .smart-pill {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #e2e8f0;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            border-radius: 12px;
+            padding: 6px 12px;
+        }
+
+        .smart-pill strong {
+            color: #7dd3fc;
+            font-weight: 600;
+        }
+
+        .smart-pill-name {
+            white-space: nowrap;
+            line-height: 1.3;
+        }
+
+        .smart-pill-hint {
+            display: block;
+            font-size: 8px;
+            font-weight: 400;
+            color: #64748b;
+            text-transform: none;
+            letter-spacing: 0;
+            margin-top: 1px;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            line-height: 1.3;
+        }
+
+        .smart-arrow {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .story-main {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 22px;
+            min-height: 0;
+            overflow: hidden;
+            align-content: stretch;
+        }
+
+        .story-col {
+            min-width: 0;
+            min-height: 0;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            padding-right: 8px;
-            min-height: 0;
-            align-self: start;
         }
 
         .hero-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 36px;
+            font-size: 26px;
             font-weight: 700;
             color: white;
-            line-height: 1.12;
+            line-height: 1.14;
+            margin-bottom: 8px;
+            flex-shrink: 0;
         }
 
         .hero-title .highlight {
@@ -149,47 +226,29 @@
 
         .hero-lead {
             color: #cbd5e1;
-            font-size: 15px;
+            font-size: 13px;
             line-height: 1.5;
-            max-width: 540px;
-        }
-        .hero-role {
-            color: #94a3b8;
-            font-size: 12px;
-            line-height: 1.45;
-            max-width: 540px;
-            margin-top: 2px;
-        }
-        .hero-role strong {
-            color: #cbd5e1;
-            font-weight: 600;
-        }
-        .hero-role .role-label {
-            color: #f8fafc;
-            font-weight: 700;
-            text-decoration: underline;
-            text-decoration-color: rgba(56, 189, 248, 0.8);
-            text-underline-offset: 4px;
-            text-decoration-thickness: 1px;
+            flex-shrink: 0;
         }
 
         .flow-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 6px;
+            gap: 6px;
+            margin-top: 10px;
+            flex-shrink: 0;
         }
 
         .flow-step {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 999px;
-            padding: 7px 12px;
+            padding: 5px 10px;
             color: #e2e8f0;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .flow-step i {
@@ -207,23 +266,30 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 4px;
+            gap: 8px;
+            margin-top: 10px;
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-right: 4px;
+            scrollbar-width: thin;
         }
 
         .bullet-list li {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: flex-start;
             color: #94a3b8;
-            font-size: 13px;
+            font-size: 12px;
             line-height: 1.42;
         }
 
         .bullet-list li i {
             color: #06b6d4;
-            margin-top: 4px;
+            margin-top: 3px;
             flex-shrink: 0;
+            font-size: 11px;
         }
 
         .bullet-list strong {
@@ -231,100 +297,171 @@
             font-weight: 600;
         }
 
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 4px;
-        }
-
-        .tech-tag {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            padding: 6px 12px;
-            border-radius: 20px;
-            color: #3b82f6;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .right-content {
+        .role-stack {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 8px;
             min-height: 0;
-            padding: 4px 0 8px 8px;
-            align-self: stretch;
-        }
-
-        /* Collage: marine context + overlapping data panel */
-        .collage-scene {
-            position: relative;
-            width: 100%;
-            flex: 1;
-            min-height: 420px;
-            isolation: isolate;
-        }
-
-        .collage-ambient {
-            position: absolute;
-            inset: -12% -8% -8% -12%;
-            background:
-                radial-gradient(ellipse 75% 55% at 72% 38%, rgba(59, 130, 246, 0.22), transparent 52%),
-                radial-gradient(ellipse 45% 40% at 18% 78%, rgba(6, 182, 212, 0.14), transparent 50%),
-                radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.9), transparent 45%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .collage-ring {
-            position: absolute;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            border: 1px solid rgba(148, 163, 184, 0.12);
-            top: 50%;
-            left: 58%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .collage-ring::after {
-            content: '';
-            position: absolute;
-            inset: 28px;
-            border-radius: 50%;
-            border: 1px dashed rgba(56, 189, 248, 0.15);
-        }
-
-        .collage-marine {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-            position: absolute;
-            top: 2%;
-            left: -2%;
-            width: 92%;
-            height: 58%;
-            border-radius: 22px;
             overflow: hidden;
-            transform: rotate(-3deg);
-            box-shadow:
-                0 28px 64px rgba(0, 0, 0, 0.5),
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.06);
-            z-index: 1;
         }
 
-        .collage-marine:focus-visible {
-            outline: 2px solid #38bdf8;
-            outline-offset: 4px;
-            z-index: 6;
+        .role-cards-scroll {
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-right: 2px;
+            scrollbar-width: thin;
         }
 
-        .collage-marine img {
+        .role-card {
+            border-radius: 12px;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .role-card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #38bdf8;
+            margin-bottom: 6px;
+        }
+
+        .role-card p {
+            font-size: 11px;
+            line-height: 1.45;
+            color: #cbd5e1;
+        }
+
+        .role-card .role-label {
+            color: #f8fafc;
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: rgba(56, 189, 248, 0.85);
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+        }
+
+        .kpi-panel {
+            margin-top: 0;
+            padding: 8px 10px 6px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.22);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            flex-shrink: 0;
+        }
+
+        .kpi-panel-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+        }
+
+        .kpi-stat {
+            text-align: center;
+        }
+
+        .kpi-stat-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #e2e8f0;
+        }
+
+        .kpi-stat-value .kpi-unit {
+            font-size: 10px;
+            font-weight: 500;
+            color: #94a3b8;
+        }
+
+        .kpi-stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 8px;
+            color: #64748b;
+            margin-top: 2px;
+            line-height: 1.25;
+        }
+
+        .kpi-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        .kpi-bar-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: #94a3b8;
+            width: 74px;
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .kpi-bar-track {
+            flex: 1;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .kpi-bar-fill {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        }
+
+        .kpi-bar-pct {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            font-weight: 600;
+            color: #7dd3fc;
+            width: 32px;
+            flex-shrink: 0;
+        }
+
+        .thumb-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            flex-shrink: 0;
+            height: 102px;
+            min-height: 102px;
+            max-height: 102px;
+            align-items: stretch;
+        }
+
+        .thumb {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+            min-width: 0;
+            height: 100%;
+            position: relative;
+        }
+
+        .thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -332,120 +469,15 @@
             display: block;
         }
 
-        .collage-marine::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(105deg, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.15) 42%, transparent 62%);
-            pointer-events: none;
+        /* Crop baked-in poster text on stock imagery so captions stay inside the frame */
+        .thumb--marine img {
+            object-position: 38% 42%;
         }
 
-        .collage-data {
-            position: absolute;
-            bottom: 4%;
-            right: -2%;
-            width: 78%;
-            height: 52%;
-            border-radius: 16px;
-            overflow: hidden;
-            transform: rotate(4deg);
-            box-shadow:
-                0 24px 56px rgba(0, 0, 0, 0.55),
-                0 0 0 1px rgba(56, 189, 248, 0.35),
-                0 0 48px rgba(59, 130, 246, 0.18);
-            z-index: 2;
-        }
-
-        .collage-data img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .thumb--data img {
             object-position: left top;
-            display: block;
         }
 
-        .collage-data::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 55%, rgba(15, 23, 42, 0.35) 100%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .collage-badge {
-            pointer-events: none;
-            position: absolute;
-            z-index: 5;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.11em;
-            text-transform: uppercase;
-            padding: 7px 12px;
-            border-radius: 10px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            background: rgba(15, 23, 42, 0.72);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            color: #f1f5f9;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-        }
-
-        .collage-badge--accent {
-            color: #7dd3fc;
-            border-color: rgba(56, 189, 248, 0.35);
-        }
-
-        .collage-badge--marine {
-            top: 14%;
-            left: 6%;
-        }
-
-        .collage-badge--data {
-            bottom: 38%;
-            right: 4%;
-        }
-
-        .collage-connector {
-            position: absolute;
-            z-index: 3;
-            width: 120px;
-            height: 90px;
-            left: 46%;
-            top: 44%;
-            pointer-events: none;
-            opacity: 0.85;
-        }
-
-        .collage-connector svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .collage-foot {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 4;
-            padding-bottom: 2px;
-            max-width: 100%;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: #64748b;
-            line-height: 1.45;
-            padding: 0 4px;
-        }
-
-        .collage-foot code {
-            color: #94a3b8;
-            background: rgba(0, 0, 0, 0.28);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        /* Partner logos — header strip */
         .slide-logo-strip {
             position: relative;
             z-index: 12;
@@ -466,7 +498,6 @@
             box-shadow:
                 0 6px 22px rgba(0, 0, 0, 0.22),
                 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
-            max-width: 100%;
         }
 
         .slide-logo-strip a {
@@ -509,7 +540,6 @@
             height: 32px;
             width: auto;
             max-width: 46px;
-            object-fit: contain;
         }
 
         .partner-logo--nato {
@@ -533,7 +563,6 @@
             background: linear-gradient(90deg, #3b82f6, #06b6d4);
         }
 
-        /* Click-to-enlarge lightbox */
         .diagram-lightbox-trigger {
             cursor: zoom-in;
         }
@@ -541,7 +570,6 @@
         .diagram-lightbox-trigger:focus-visible {
             outline: 2px solid #38bdf8;
             outline-offset: 3px;
-            z-index: 6;
         }
 
         .image-lightbox {
@@ -605,13 +633,18 @@
             z-index: 100000;
         }
 
-        .collage-foot a.collage-foot-link {
-            color: #38bdf8;
-            text-decoration: none;
+        .next-slide-hint {
+            font-size: 11px;
+            color: #94a3b8;
+            margin: 0;
+            padding: 4px 2px 0;
+            line-height: 1.35;
+            flex-shrink: 0;
         }
 
-        .collage-foot a.collage-foot-link:hover {
-            text-decoration: underline;
+        .next-slide-hint i {
+            color: #38bdf8;
+            margin-right: 6px;
         }
     </style>
 <link href="slides-rwd.css" rel="stylesheet">
@@ -628,14 +661,15 @@
 <i class="fas fa-ship"></i>
 </div>
 <div>
-<div class="case-label">Selected use case</div>
+<div class="case-label">Mashien · Part 1 — narrative</div>
 <div class="logo-text">Mashien</div>
-<div class="logo-subtitle">Marine shock analytics · AWS data platform</div>
+<div class="logo-subtitle">Marine shock analytics · high-frequency time series · AWS data platform</div>
 </div>
 </div>
 <div class="header-right-cluster">
+<span class="slide-part-pill" aria-hidden="true">1 / 2</span>
 <div class="status-badge">
-Ingest → catalog → algorithms → BI
+Binary MarecX → lakehouse → measures → BI
             </div>
 <div class="slide-logo-strip" role="group" aria-label="Project sponsors">
 <div class="slide-logo-strip-inner">
@@ -651,70 +685,102 @@ Ingest → catalog → algorithms → BI
 </div>
 </div>
 </div>
-<div class="left-content">
-<div>
+<div class="smart-strip" aria-label="Delivery phases (SMART arc)">
+<span class="smart-pill"><span class="smart-pill-name"><strong>S</strong>hape</span><span class="smart-pill-hint">Requirements &amp; acceptance</span></span>
+<span class="smart-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="smart-pill"><span class="smart-pill-name"><strong>M</strong>obilise</span><span class="smart-pill-hint">SOW · estimation · sequencing</span></span>
+<span class="smart-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="smart-pill"><span class="smart-pill-name"><strong>A</strong>rchitect</span><span class="smart-pill-hint">AWS target · security model</span></span>
+<span class="smart-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="smart-pill"><span class="smart-pill-name"><strong>R</strong>un</span><span class="smart-pill-hint">PM · planning · RAID · demos</span></span>
+<span class="smart-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="smart-pill"><span class="smart-pill-name"><strong>T</strong>ransfer</span><span class="smart-pill-hint">Handover · ops readiness</span></span>
+</div>
+<div class="story-main">
+<div class="story-col story-col--left">
 <h1 class="hero-title">
-<span class="highlight">Essence:</span> from raw MarecX uploads<br>to queryable hull-impact signals
+<span class="highlight">Situation:</span> dense binary captures from shock trials → governed analytics
                 </h1>
 <p class="hero-lead">
-                    Agents upload binary payloads through a secured web path; the platform normalizes them to analytics-ready tables, runs channel-aware processing with calibration, and exposes curated datasets for SQL and dashboards.
+                    Teams upload MarecX-style payloads at high sampling rates. The gap was not raw storage but <strong>trustworthy decoding</strong>, <strong>channel-aware filtering</strong>, and <strong>repeatable hull-impact measures</strong> — with NATO and University of Gothenburg stakeholders expecting an auditable path from ingest to dashboard.
                 </p>
-</div>
 <div class="flow-row">
-<span class="flow-step"><i class="fas fa-cloud-upload-alt"></i> Amplify + Cognito</span>
+<span class="flow-step"><i class="fas fa-lock"></i> Cognito JWT</span>
 <span class="flow-arrow"><i class="fas fa-chevron-right"></i></span>
-<span class="flow-step"><i class="fas fa-database"></i> S3 landing → Parquet</span>
+<span class="flow-step"><i class="fas fa-network-wired"></i> API GW → Lambda</span>
 <span class="flow-arrow"><i class="fas fa-chevron-right"></i></span>
-<span class="flow-step"><i class="fas fa-gears"></i> Glue + Athena</span>
+<span class="flow-step"><i class="fas fa-database"></i> S3 → Parquet lake</span>
 <span class="flow-arrow"><i class="fas fa-chevron-right"></i></span>
-<span class="flow-step"><i class="fas fa-chart-pie"></i> Superset</span>
+<span class="flow-step"><i class="fas fa-layer-group"></i> Glue + Athena</span>
+<span class="flow-arrow"><i class="fas fa-chevron-right"></i></span>
+<span class="flow-step"><i class="fas fa-chart-pie"></i> Superset @ EKS</span>
 </div>
 <ul class="bullet-list">
 <li>
-<i class="fas fa-diagram-project"></i>
-<span><strong>Pipeline (architecture)</strong> — Event-driven Lambdas move data from binary landing zones to Parquet, partition agency/time paths, and keep the Glue catalog in sync for downstream joins.</span>
+<i class="fas fa-wave-square"></i>
+<span><strong>High-frequency angle</strong> — sparse multi-channel rows (<code>ts</code>, <code>c1…</code>) land in partitioned Parquet; SQS batching, row-count guards, and Athena refresh patterns kept large trials stable.</span>
 </li>
 <li>
-<i class="fas fa-wave-square"></i>
-<span><strong>Algorithms (<code>mashien-algos</code>)</strong> — Parser unpacks MarecX payloads from S3; the measures worker consumes SQS batches, validates row counts, applies multi-channel filters with calibration, and scores hull impacts for reporting.</span>
+<i class="fas fa-gauge-high"></i>
+<span><strong>Platform KPIs</strong> — KMS encryption; raw vs curated buckets; Glue layers (sensor / filtered / impacts); Athena workgroup with encrypted outputs; pipeline DLQ; Superset on EKS with Cognito-oriented auth settings.</span>
 </li>
 </ul>
-<div class="tech-stack">
-<span class="tech-tag">S3</span>
-<span class="tech-tag">Lambda</span>
-<span class="tech-tag">EventBridge</span>
-<span class="tech-tag">SQS</span>
-<span class="tech-tag">Glue</span>
-<span class="tech-tag">Athena</span>
-<span class="tech-tag">pandas</span>
+</div>
+<div class="story-col story-col--right">
+<div class="role-stack">
+<div class="role-cards-scroll">
+<div class="role-card">
+<div class="role-card-title"><i class="fas fa-people-group"></i> Delivery &amp; management</div>
+<p><span class="role-label">Scope &amp; contracting</span> — workshops with researchers and sponsors; refined acceptance criteria; aligned <strong>statement of work</strong> with Crayon; effort sizing across ingest, algorithms, and BI dependencies.</p>
+<p style="margin-top:8px"><span class="role-label">Execution</span> — milestone planning, RAID-style risk tracking, stakeholder cadence, and estimation updates as trial formats evolved.</p>
+</div>
+<div class="role-card">
+<div class="role-card-title"><i class="fas fa-code"></i> Hands-on engineering</div>
+<p><span class="role-label">Core delivery</span> — owned pipeline logic in <code>mashien-algos</code>: binary unpack → validation → calibration-aware measures → curated tables feeding analytics.</p>
+<p style="margin-top:8px"><span class="role-label">Platform collaboration</span> — paired on IaC for Lambdas, queues, Glue/Athena paths (see git footprint on the next slide’s companion repo notes).</p>
 </div>
 </div>
-<div class="right-content">
-<div class="collage-scene">
-<div class="collage-ambient"></div>
-<div class="collage-ring"></div>
-<div class="collage-marine diagram-lightbox-trigger" role="button" tabindex="0" aria-label="Enlarge marine context image. When enlarged, click the image again to open the SoftwareOne NATO Mashien case study." data-article-url="https://www.softwareone.com/en/case-studies/global/education/university-of-gothenburg-cloud-services">
-<img src="assets/mashien-collage-marine-context.png" width="640" height="360" alt="High-speed marine context — visual metaphor for shock and sea trials; image style reference linked to SoftwareOne case study">
+<div class="kpi-panel" aria-label="Git-derived contribution metrics">
+<div class="kpi-panel-title"><i class="fas fa-code-commit" style="margin-right:4px"></i> Git contribution (Jul–Nov 2023)</div>
+<div class="kpi-grid">
+<div class="kpi-stat">
+<div class="kpi-stat-value">110</div>
+<div class="kpi-stat-label">commits<br>mashien-algos</div>
 </div>
-<span class="collage-badge collage-badge--marine">Marine / shock context</span>
-<div class="collage-data diagram-lightbox-trigger" role="button" tabindex="0" aria-label="Enlarge sparse channel data preview. When enlarged, click the image again to open the SoftwareOne NATO Mashien case study." data-article-url="https://www.softwareone.com/en/case-studies/global/education/university-of-gothenburg-cloud-services">
-<img src="assets/mashien-sparse-channels-preview.png" width="520" height="300" alt="Sparse multi-channel time series: ts and channel columns">
+<div class="kpi-stat">
+<div class="kpi-stat-value">85<span class="kpi-unit">%</span></div>
+<div class="kpi-stat-label">of repo<br>history</div>
 </div>
-<span class="collage-badge collage-badge--accent collage-badge--data">Signal layer · mashien-algos</span>
-<div class="collage-connector" aria-hidden="true">
-<svg viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8 72 Q 38 28, 95 18" stroke="url(#collageGrad)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-<circle cx="95" cy="18" r="5" fill="#38bdf8" fill-opacity="0.9"/>
-<circle cx="8" cy="72" r="4" fill="#3b82f6" fill-opacity="0.85"/>
-<defs>
-<linearGradient id="collageGrad" x1="8" y1="72" x2="95" y2="18" gradientUnits="userSpaceOnUse">
-<stop stop-color="#3b82f6"/>
-<stop offset="1" stop-color="#22d3ee"/>
-</linearGradient>
-</defs>
-</svg>
+<div class="kpi-stat">
+<div class="kpi-stat-value">4.9<span class="kpi-unit">k</span></div>
+<div class="kpi-stat-label">lines<br>added</div>
 </div>
-<p class="collage-foot">Overlapping story: operations imagery → tabular pipeline input · <code>ts</code>, <code>c1</code>…<code>c10</code> · sparse events per row · <a class="collage-foot-link" href="https://www.softwareone.com/en/case-studies/global/education/university-of-gothenburg-cloud-services" target="_blank" rel="noopener noreferrer">SoftwareOne — NATO / Mashien (University of Gothenburg case)</a></p>
+<div class="kpi-stat">
+<div class="kpi-stat-value">16</div>
+<div class="kpi-stat-label">commits<br>mashien-infra</div>
+</div>
+</div>
+<div class="kpi-bar-row">
+<span class="kpi-bar-label">algos ownership</span>
+<div class="kpi-bar-track"><div class="kpi-bar-fill" style="width:85%"></div></div>
+<span class="kpi-bar-pct">85%</span>
+</div>
+<div class="kpi-bar-row">
+<span class="kpi-bar-label">infra contribution</span>
+<div class="kpi-bar-track"><div class="kpi-bar-fill" style="width:16%"></div></div>
+<span class="kpi-bar-pct">16%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="next-slide-hint"><i class="fas fa-arrow-right"></i> Next slide: full AWS service map &amp; data-plane diagram.</p>
+<div class="thumb-row">
+<div class="diagram-lightbox-trigger thumb thumb--marine" role="button" tabindex="0" aria-label="Enlarge marine context" data-article-url="https://www.softwareone.com/en/case-studies/global/education/university-of-gothenburg-cloud-services">
+<img src="assets/mashien-collage-marine-context.png" alt="Marine shock trials context">
+</div>
+<div class="diagram-lightbox-trigger thumb thumb--data" role="button" tabindex="0" aria-label="Enlarge channel preview" data-article-url="https://www.softwareone.com/en/case-studies/global/education/university-of-gothenburg-cloud-services">
+<img src="assets/mashien-sparse-channels-preview.png" alt="Sparse multi-channel time series preview">
 </div>
 </div>
 </div>
@@ -726,7 +792,7 @@ Ingest → catalog → algorithms → BI
 <div id="image-lightbox" class="image-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Enlarged image">
 <button type="button" class="image-lightbox__close" aria-label="Close">&times;</button>
 <img class="image-lightbox__img" src="" alt="">
-<span class="image-lightbox__hint">Click the image again to open the SoftwareOne case · or click backdrop / press Escape to close</span>
+<span class="image-lightbox__hint">Click the image again for the SoftwareOne case · backdrop or Escape closes</span>
 </div>
 <script>
 (function () {

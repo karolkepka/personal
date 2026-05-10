@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Mashien — AWS reference architecture</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto minmax(0, 1fr);
+            gap: 12px;
+            padding: 28px 44px 44px;
+            align-items: start;
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .header-right-cluster {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .slide-part-pill {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .logo-subtitle {
+            color: #94a3b8;
+            font-size: 11px;
+            margin-top: 2px;
+            max-width: 520px;
+            line-height: 1.35;
+        }
+
+        .case-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #38bdf8;
+            margin-bottom: 4px;
+        }
+
+        .status-badge {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 7px 14px;
+            border-radius: 20px;
+            color: #3b82f6;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .slide-logo-strip-inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 12px 5px 10px;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
+        }
+
+        .slide-logo-strip a {
+            display: flex;
+            align-items: center;
+            line-height: 0;
+            text-decoration: none;
+        }
+
+        .sponsor-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-right: 2px;
+        }
+
+        .partner-logo--gu {
+            height: 28px;
+            max-width: 42px;
+        }
+
+        .partner-logo--nato {
+            height: 16px;
+            max-width: 118px;
+        }
+
+        .partner-logo-divider {
+            width: 1px;
+            height: 20px;
+            background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.15), transparent);
+        }
+
+        .flow-diagram-wrap {
+            border-radius: 14px;
+            padding: 12px 18px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(56, 189, 248, 0.18);
+        }
+
+        .flow-diagram-wrap svg {
+            width: 100%;
+            height: auto;
+            max-height: 88px;
+            display: block;
+        }
+
+        .flow-legend {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #64748b;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .aws-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 16px;
+            min-height: 0;
+            align-content: start;
+        }
+
+        .aws-layer {
+            border-radius: 12px;
+            padding: 11px 13px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .aws-layer-head {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .aws-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .aws-tag {
+            font-size: 11px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.14);
+            border: 1px solid rgba(59, 130, 246, 0.28);
+            color: #93c5fd;
+            font-weight: 500;
+        }
+
+        .footnote {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 8px;
+            line-height: 1.45;
+        }
+
+        .footnote code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #94a3b8;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .bottom-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        }
+    </style>
+<link href="slides-rwd.css" rel="stylesheet">
+</head>
+<body>
+<div class="slide-viewport">
+<div class="slide-scale-wrap">
+<div class="slide-scale-inner">
+<div class="slide-container">
+<div class="hero-grid">
+<div class="header-section">
+<div class="logo-area">
+<div class="logo-icon">
+<i class="fas fa-diagram-project"></i>
+</div>
+<div>
+<div class="case-label">Mashien · Part 2 — architecture</div>
+<div class="logo-text">AWS reference map</div>
+<div class="logo-subtitle">Services provisioned or integrated via Terraform (<code>mashien-infra</code>) plus runtime components — grouped for readability.</div>
+</div>
+</div>
+<div class="header-right-cluster">
+<span class="slide-part-pill">2 / 2</span>
+<div class="status-badge">
+Data plane · control plane · BI plane
+            </div>
+<div class="slide-logo-strip" role="group" aria-label="Project sponsors">
+<div class="slide-logo-strip-inner">
+<span class="sponsor-note">Sponsors</span>
+<a href="https://www.gu.se/en" target="_blank" rel="noopener noreferrer" aria-label="University of Gothenburg">
+<img class="partner-logo partner-logo--gu" src="assets/logo-university-gothenburg-official.svg" width="42" height="28" alt="University of Gothenburg">
+</a>
+<span class="partner-logo-divider" aria-hidden="true"></span>
+<a href="https://www.nato.int" target="_blank" rel="noopener noreferrer" aria-label="NATO">
+<img class="partner-logo partner-logo--nato" src="assets/logo-nato-otan.svg" width="118" height="16" alt="NATO / OTAN">
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="flow-diagram-wrap" aria-label="High-level data flow">
+<svg viewBox="0 0 1180 72" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Binary uploads through API and Cognito to S3; EventBridge and Lambdas process into Parquet; Glue and Athena serve Superset on EKS</title>
+<defs>
+<linearGradient id="fg" x1="0" y1="0" x2="1180" y2="0" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3b82f6"/><stop offset="1" stop-color="#22d3ee"/>
+</linearGradient>
+</defs>
+<text x="10" y="22" fill="#94a3b8" font-family="Montserrat, sans-serif" font-size="11" font-weight="700" letter-spacing="0.12em">DATA FLOW</text>
+<rect x="8" y="34" rx="8" width="108" height="34" fill="rgba(59,130,246,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="1"/>
+<text x="62" y="56" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Clients</text>
+<path d="M122 51h28" stroke="url(#fg)" stroke-width="2" stroke-linecap="round"/>
+<polygon points="154,51 148,46 148,56" fill="#22d3ee"/>
+<rect x="158" y="34" rx="8" width="138" height="34" fill="rgba(59,130,246,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="1"/>
+<text x="227" y="56" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">API GW + Cognito</text>
+<path d="M302 51h28" stroke="url(#fg)" stroke-width="2" stroke-linecap="round"/>
+<polygon points="334,51 328,46 328,56" fill="#22d3ee"/>
+<rect x="338" y="34" rx="8" width="100" height="34" fill="rgba(59,130,246,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="1"/>
+<text x="388" y="56" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Lambda</text>
+<path d="M444 51h24" stroke="url(#fg)" stroke-width="2" stroke-linecap="round"/>
+<polygon points="472,51 466,46 466,56" fill="#22d3ee"/>
+<rect x="476" y="34" rx="8" width="92" height="34" fill="rgba(59,130,246,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="1"/>
+<text x="522" y="56" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">S3 raw</text>
+<path d="M574 51h22" stroke="url(#fg)" stroke-width="2" stroke-linecap="round"/>
+<polygon points="600,51 594,46 594,56" fill="#22d3ee"/>
+<rect x="604" y="34" rx="8" width="118" height="34" fill="rgba(59,130,246,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="1"/>
+<text x="663" y="56" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">EB · SQS · λ</text>
+<path d="M728 51h22" stroke="url(#fg)" stroke-width="2" stroke-linecap="round"/>
+<polygon points="754,51 748,46 748,56" fill="#22d3ee"/>
+<rect x="758" y="34" rx="8" width="112" height="34" fill="rgba(59,130,246,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="1"/>
+<text x="814" y="56" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">S3 Parquet</text>
+<path d="M876 51h22" stroke="url(#fg)" stroke-width="2" stroke-linecap="round"/>
+<polygon points="902,51 896,46 896,56" fill="#22d3ee"/>
+<rect x="906" y="34" rx="8" width="128" height="34" fill="rgba(59,130,246,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="1"/>
+<text x="970" y="56" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Glue · Athena</text>
+<path d="M1038 51h20" stroke="url(#fg)" stroke-width="2" stroke-linecap="round"/>
+<polygon points="1062,51 1056,46 1056,56" fill="#22d3ee"/>
+<rect x="1066" y="34" rx="8" width="106" height="34" fill="rgba(59,130,246,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="1"/>
+<text x="1119" y="56" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Superset</text>
+</svg>
+<p class="flow-legend">KMS encrypts buckets · DLQ on pipeline queue · IAM/IRSA for cluster &amp; Lambda roles · PostgreSQL hosts Superset metadata (external to core module)</p>
+</div>
+<div class="aws-grid">
+<div class="aws-layer">
+<div class="aws-layer-head">Network &amp; compute</div>
+<div class="aws-tags">
+<span class="aws-tag">VPC</span>
+<span class="aws-tag">Public / private / intra subnets</span>
+<span class="aws-tag">NAT Gateway</span>
+<span class="aws-tag">IPv6 + egress-only IGW</span>
+<span class="aws-tag">VPC peering</span>
+<span class="aws-tag">EKS</span>
+<span class="aws-tag">Managed node groups (EC2)</span>
+<span class="aws-tag">AWS Load Balancer Controller</span>
+<span class="aws-tag">ACM (SSL cert ARN)</span>
+<span class="aws-tag">Helm</span>
+</div>
+</div>
+<div class="aws-layer">
+<div class="aws-layer-head">Edge, identity &amp; API</div>
+<div class="aws-tags">
+<span class="aws-tag">Cognito User Pool</span>
+<span class="aws-tag">User Pool Client</span>
+<span class="aws-tag">Cognito Domain</span>
+<span class="aws-tag">API Gateway HTTP API</span>
+<span class="aws-tag">JWT authorizer</span>
+<span class="aws-tag">Lambda (container image)</span>
+<span class="aws-tag">ECR</span>
+</div>
+</div>
+<div class="aws-layer">
+<div class="aws-layer-head">Data, analytics &amp; orchestration</div>
+<div class="aws-tags">
+<span class="aws-tag">S3 raw landing</span>
+<span class="aws-tag">S3 curated data</span>
+<span class="aws-tag">S3 Athena results</span>
+<span class="aws-tag">S3 event notifications</span>
+<span class="aws-tag">KMS + SSE</span>
+<span class="aws-tag">SQS</span>
+<span class="aws-tag">SQS DLQ</span>
+<span class="aws-tag">EventBridge</span>
+<span class="aws-tag">Glue Data Catalog</span>
+<span class="aws-tag">Athena database</span>
+<span class="aws-tag">Athena workgroup</span>
+<span class="aws-tag">Apache Superset (Helm)</span>
+<span class="aws-tag">PostgreSQL (metadata DB)</span>
+</div>
+</div>
+<div class="aws-layer">
+<div class="aws-layer-head">Governance, ops &amp; IaC bootstrap</div>
+<div class="aws-tags">
+<span class="aws-tag">IAM roles / policies</span>
+<span class="aws-tag">IAM user (connector)</span>
+<span class="aws-tag">CloudWatch Logs</span>
+<span class="aws-tag">Terraform state (S3)</span>
+<span class="aws-tag">Terraform locks (DynamoDB)</span>
+</div>
+<p class="footnote">Drawio diagrams in <code>mashien-infra/docs/</code> (ingestion, API, Superset) mirror this layout for stakeholder packs.</p>
+</div>
+</div>
+</div>
+<div class="bottom-bar"></div>
+</div>
+</div>
+</div>
+</div>
+<script src="slides-rwd.js" defer></script>
+<script src="slides-nav.js" defer></script>
+</body>
+</html>
